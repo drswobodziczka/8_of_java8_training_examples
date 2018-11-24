@@ -22,3 +22,8 @@
 		a. Type annotations
 		b. Reapiting annotations
     7. Biggest problems with Java8
+    8. Best Practises
+    
+    OPTIONAL
+    
+    Java 7 features
