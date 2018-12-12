@@ -38,24 +38,24 @@ public class FunctionalInterfacesExample {
         T fetch ();
     }
 
-    @FunctionalInterface
+//    @FunctionalInterface
     interface ToManyAbstractMethods {
         String first (String input);
         String second (String input);
     }
 
-    @FunctionalInterface
+//    @FunctionalInterface
     interface ToManyAbstractMethods22 extends Function {
         String first (String input);
     }
 
-    @FunctionalInterface
+//    @FunctionalInterface
     abstract class NotAnInterface {
         abstract String method(String param);
     }
 
-    @FunctionalInterface
-    class NotAnInterface {
+//    @FunctionalInterface
+    class NotAnInterface2 {
         String method(String param) {
             return null;
         }
