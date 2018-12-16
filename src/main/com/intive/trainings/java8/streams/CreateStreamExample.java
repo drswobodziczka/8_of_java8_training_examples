@@ -9,52 +9,73 @@ import static java.util.stream.Collectors.toList;
 
 public class CreateStreamExample {
 
-    Stream<String> createEmptyStream() {
-        return Stream.empty();
+    void createEmptyStream() {
+        Stream<Object> empty = Stream.empty();
+        printStream(empty);
     }
 
-    Stream<String> createStreamFromArray() {
+    void createStreamFromArray() {
         String[] array = new String[]{"a", "b", "c"};
-        return Arrays.stream(array);
+        Stream<String> stream = Arrays.stream(array);
+        printStream(stream);
     }
 
-    Stream<String> createStreamFromCollection() {
-        return Arrays.asList("a", "b", "c").stream();
+    void createStreamFromCollection() {
+        Stream<String> stream = Arrays.asList("a", "b", "c").stream();
+        printStream(stream);
     }
 
     private void createStreamFromFactoryMethods() {
+        //
         Stream<String> factoryStream = Stream.of("ala", "ma", "kota");
+
+        //
         Stream<Double> iteratedStream = Stream.iterate(2.0, Math::exp).limit(100);
+
+        //
         DoubleStream doubleStream = DoubleStream.generate(() -> new Random().nextDouble());
+        Stream<String> alaStream = Stream.generate(() -> "ala ma kota").limit(10);
+
+        //
         IntStream intStream = IntStream.range(0, 100);
 
-        ArrayList<Integer> collect = intStream.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
-
-        System.out.println(factoryStream.collect(toList()));
-        System.out.println(iteratedStream.collect(toList()));
-        System.out.println(intStream.boxed().collect(toList()));
-        System.out.println(factoryStream.collect(toList()));
+        printStream(factoryStream);
+        printStream(iteratedStream);
+        printStream(doubleStream.boxed());
+        printStream(alaStream);
+        printStream(intStream.boxed());
     }
 
-    private void printStream(BaseStream<String, ?> factoryStream) {
-
-    }
-
-    DoubleStream createStreamFromRandom() {
+    void createStreamFromRandom() {
         IntStream ints = new Random().ints();
         DoubleStream doubles = new Random().doubles();
-        return doubles;
+
+        printStream(doubles.boxed());
+        printStream(ints.boxed());
     }
 
-    Stream<String> createStreamFromStreamBuilder() {
-        return Stream.<String>builder()
+    void createStreamFromStreamBuilder() {
+        Stream<String> stream = Stream.<String>builder()
                 .add("ala")
                 .add("ma")
                 .add("kota")
                 .build();
+
+        printStream(stream);
+    }
+
+    private void printStream(Stream<?> stream) {
+        System.out.println(stream.collect(toList()));
     }
 
     public static void main(String[] args) {
-        new CreateStreamExample().createStreamFromFactoryMethods();
+        CreateStreamExample createStreamExample = new CreateStreamExample();
+
+        createStreamExample.createEmptyStream();
+        createStreamExample.createStreamFromArray();
+        createStreamExample.createStreamFromCollection();
+        createStreamExample.createStreamFromFactoryMethods();
+        createStreamExample.createStreamFromRandom();
+        createStreamExample.createStreamFromStreamBuilder();
     }
 }
