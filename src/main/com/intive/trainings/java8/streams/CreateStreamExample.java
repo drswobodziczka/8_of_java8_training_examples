@@ -1,26 +1,28 @@
 package com.intive.trainings.java8.streams;
 
-import java.nio.file.FileSystem;
-import java.nio.file.Files;
-import java.util.*;
-import java.util.stream.*;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.regex.Pattern;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
 public class CreateStreamExample {
 
-    void createEmptyStream() {
+    private void createEmptyStream() {
         Stream<Object> empty = Stream.empty();
         printStream(empty);
     }
 
-    void createStreamFromArray() {
+    private void createStreamFromArray() {
         String[] array = new String[]{"a", "b", "c"};
         Stream<String> stream = Arrays.stream(array);
         printStream(stream);
     }
 
-    void createStreamFromCollection() {
+    private void createStreamFromCollection() {
         Stream<String> stream = Arrays.asList("a", "b", "c").stream();
         printStream(stream);
     }
@@ -30,10 +32,10 @@ public class CreateStreamExample {
         Stream<String> factoryStream = Stream.of("ala", "ma", "kota");
 
         //
-        Stream<Double> iteratedStream = Stream.iterate(2.0, Math::exp).limit(100);
+        Stream<Double> iteratedStream = Stream.iterate(2.0, Math::exp).limit(10);
 
         //
-        DoubleStream doubleStream = DoubleStream.generate(() -> new Random().nextDouble());
+        DoubleStream doubleStream = DoubleStream.generate(() -> new Random().nextDouble()).limit(10);
         Stream<String> alaStream = Stream.generate(() -> "ala ma kota").limit(10);
 
         //
@@ -46,15 +48,15 @@ public class CreateStreamExample {
         printStream(intStream.boxed());
     }
 
-    void createStreamFromRandom() {
-        IntStream ints = new Random().ints();
-        DoubleStream doubles = new Random().doubles();
+    private void createStreamFromRandom() {
+        IntStream ints = new Random().ints().limit(10);
+        DoubleStream doubles = new Random().doubles().limit(10);
 
         printStream(doubles.boxed());
         printStream(ints.boxed());
     }
 
-    void createStreamFromStreamBuilder() {
+    private void createStreamFromStreamBuilder() {
         Stream<String> stream = Stream.<String>builder()
                 .add("ala")
                 .add("ma")
@@ -62,6 +64,21 @@ public class CreateStreamExample {
                 .build();
 
         printStream(stream);
+    }
+
+    private void createStreamFromString() {
+        //
+        Stream<String> streamOfString =
+                Pattern.compile(", ").splitAsStream("a, b, c, d, e, f");
+        printStream(streamOfString);
+
+        //
+        IntStream chars = "ala ma kota".chars();
+        printStream(chars.boxed());
+
+        //
+        Stream<String> stringStream = "ala ma kota".codePoints().mapToObj(c -> String.valueOf((char) c));
+        printStream(stringStream);
     }
 
     private void printStream(Stream<?> stream) {
@@ -77,5 +94,6 @@ public class CreateStreamExample {
         createStreamExample.createStreamFromFactoryMethods();
         createStreamExample.createStreamFromRandom();
         createStreamExample.createStreamFromStreamBuilder();
+        createStreamExample.createStreamFromString();
     }
 }
