@@ -7,6 +7,7 @@ public class MultiparameterLambdaExample {
     /**
      * You have to define functional interface with method taking as many params as you need.
      */
+    @FunctionalInterface
     interface Function<A, B, C, D, E> {
         E apply(A a, B b, C c, D d);
     }
