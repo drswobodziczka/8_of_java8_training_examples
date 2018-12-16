@@ -11,7 +11,7 @@ import java.util.List;
 import static com.intive.trainings.java8.GameFixture.games;
 import static java.util.Comparator.comparing;
 
-public class HowToImproveTheCodeByReplacingWithLambdas {
+public class HowToImproveTheCodeByReplacingWithLambdasExample {
 
     public static void main(String[] args) {
 
