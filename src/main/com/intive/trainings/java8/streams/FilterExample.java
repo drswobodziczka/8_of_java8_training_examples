@@ -1,12 +1,12 @@
 package com.intive.trainings.java8.streams;
 
-import com.intive.trainings.java8.streams.helper.Game;
+import com.intive.trainings.java8.Game;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.intive.trainings.java8.streams.helper.GameFixture.games;
+import static com.intive.trainings.java8.GameFixture.games;
 import static java.util.stream.Collectors.toList;
 
 public class FilterExample {

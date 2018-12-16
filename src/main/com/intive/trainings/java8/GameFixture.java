@@ -1,4 +1,6 @@
-package com.intive.trainings.java8.streams.helper;
+package com.intive.trainings.java8;
+
+import com.intive.trainings.java8.Game;
 
 import java.time.LocalDate;
 import java.util.List;

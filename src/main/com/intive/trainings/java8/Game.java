@@ -1,4 +1,4 @@
-package com.intive.trainings.java8.streams.helper;
+package com.intive.trainings.java8;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -6,9 +6,9 @@ import java.util.Objects;
 public class Game {
     private String name;
     private LocalDate firstRun;
-    private int rank;
+    private Integer rank;
 
-    public Game(String name, LocalDate firstRun, int rank) {
+    Game(String name, LocalDate firstRun, int rank) {
         this.name = name;
         this.firstRun = firstRun;
         this.rank = rank;
@@ -22,7 +22,7 @@ public class Game {
         return firstRun;
     }
 
-    public int getRank() {
+    public Integer getRank() {
         return rank;
     }
 

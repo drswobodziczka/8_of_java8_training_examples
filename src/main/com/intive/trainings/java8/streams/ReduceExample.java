@@ -1,12 +1,12 @@
 package com.intive.trainings.java8.streams;
 
-import com.intive.trainings.java8.streams.helper.Game;
+import com.intive.trainings.java8.Game;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.intive.trainings.java8.streams.helper.GameFixture.games;
+import static com.intive.trainings.java8.GameFixture.games;
 
 public class ReduceExample {
 

@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 public class StringCommandsExecutorLambdas {
 
-    private void doSomething(Consumer<String> cmd, String param) {
+    private void execute(Consumer<String> cmd, String param) {
         cmd.accept(param);
     }
 
@@ -20,10 +20,10 @@ public class StringCommandsExecutorLambdas {
         StringCommandsExecutorLambdas lambdasExample = new StringCommandsExecutorLambdas();
 
         // #1
-        lambdasExample.doSomething(System.out::println, string);
+        lambdasExample.execute(System.out::println, string);
 
         // #2
-        lambdasExample.doSomething(param -> cache.put(param, true), string);
+        lambdasExample.execute(param -> cache.put(param, true), string);
     }
 
 
