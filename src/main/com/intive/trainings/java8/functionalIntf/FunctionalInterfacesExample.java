@@ -1,4 +1,4 @@
-package com.intive.trainings.java8.functionalIntf.examples;
+package com.intive.trainings.java8.functionalIntf;
 
 public class FunctionalInterfacesExample {
 
@@ -38,22 +38,34 @@ public class FunctionalInterfacesExample {
         T fetch ();
     }
 
+    /*
+    * NOT a functional interface!
+    * */
 //    @FunctionalInterface
     interface ToManyAbstractMethods {
         String first (String input);
         String second (String input);
     }
 
+    /*
+     * NOT a functional interface!
+     * */
 //    @FunctionalInterface
     interface ToManyAbstractMethods22 extends Function {
         String first (String input);
     }
 
+    /*
+     * NOT a functional interface!
+     * */
 //    @FunctionalInterface
     abstract class NotAnInterface {
         abstract String method(String param);
     }
 
+    /*
+     * NOT a functional interface!
+     * */
 //    @FunctionalInterface
     class NotAnInterface2 {
         String method(String param) {
@@ -62,7 +74,6 @@ public class FunctionalInterfacesExample {
     }
 
     //
-
     interface AbleToBeUsedButNotSafe {
         String method(String param);
     }
