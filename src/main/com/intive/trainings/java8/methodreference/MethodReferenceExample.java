@@ -2,6 +2,7 @@ package com.intive.trainings.java8.methodreference;
 
 import java.util.Objects;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -20,7 +21,7 @@ public class MethodReferenceExample {
         BiFunction<String, String, String[]> stringStringBiFunction = String::split;
         BiFunction<String, String, Boolean> stringStringBooleanBiFunction = String::startsWith;
         Function<Integer, String> converter = String::valueOf;
-        Runnable runnable = String::new;
+        Function<String, String> constructor = String::new;
         Function<String, Object> runnable1 = String::new;
 
         return supplier.get();
