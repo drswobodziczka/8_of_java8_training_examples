@@ -2,7 +2,6 @@ package com.intive.trainings.java8.streams;
 
 import com.intive.trainings.java8.streams.helper.Game;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

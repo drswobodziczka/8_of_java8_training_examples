@@ -2,9 +2,9 @@ package com.intive.trainings.java8.streams;
 
 import com.intive.trainings.java8.streams.helper.Game;
 
-import java.time.LocalDate;
-import java.util.*;
-import java.util.stream.IntStream;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 import static com.intive.trainings.java8.streams.helper.GameFixture.games;
 import static java.util.Comparator.comparing;
