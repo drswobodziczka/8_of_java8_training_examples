@@ -5,13 +5,15 @@ import com.intive.trainings.java8.Game;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileFilter;
 import java.util.Comparator;
 import java.util.List;
 
 import static com.intive.trainings.java8.GameFixture.games;
 import static java.util.Comparator.comparing;
 
-public class HowToImproveTheCodeByReplacingWithLambdasExample {
+public class HowToImproveLegacyCodeWithLambdasExample {
 
     public static void main(String[] args) {
 
@@ -52,5 +54,17 @@ public class HowToImproveTheCodeByReplacingWithLambdasExample {
         // #3.2 comparing from Comparator
         List<Game> games2 = games();
         games2.sort(comparing(Game::getRank));
+
+        // #4 filtering files
+        File[] files = new File("").listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return false;
+            }
+        });
+
+        File[] filesWithLambda = new File("").listFiles(pathname -> false);
+
+        // #5
     }
 }
