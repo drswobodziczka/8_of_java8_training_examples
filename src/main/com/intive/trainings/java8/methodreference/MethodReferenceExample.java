@@ -1,33 +1,14 @@
 package com.intive.trainings.java8.methodreference;
 
-import java.util.Objects;
+import java.util.Arrays;
 import java.util.function.BiFunction;
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static java.lang.System.out;
 
 public class MethodReferenceExample {
 
-
-    private void doSmthWithMe(String input, Function<String, ?> consumer) {
-        out.println(consumer.apply(input));
-        Supplier<String> runnable = String::new;
-        runnable.get();
-    }
-
-    private static String createMe(Supplier<String> supplier) {
-        BiFunction<String, String, String[]> stringStringBiFunction = String::split;
-        BiFunction<String, String, Boolean> stringStringBooleanBiFunction = String::startsWith;
-        Function<Integer, String> converter = String::valueOf;
-        Function<String, String> constructor = String::new;
-        Function<String, Object> runnable1 = String::new;
-
-        return supplier.get();
-    }
-
-    private static int method(int i, int y, int z, int x) {
+    private int method(int i, int y, int z, int x) {
         return 2;
     }
 
@@ -37,14 +18,24 @@ public class MethodReferenceExample {
     }
 
     public static void main(String[] args) {
+        // #1 static method reference
         Function<Integer, String> valueOfIntLambda = (i) -> String.valueOf(i);
-
         Function<Integer, String> valueOfIntMethodReference = String::valueOf;
 
-        // zeby wyciagnac method refernce, musze miec odpowiedni typ interfejsu funkcyjnego
-        MultiFunction<Integer, Integer, Integer, Integer, Integer> f = MethodReferenceExample::method;
+        // #2 method reference to an instance method of an existing object
+        MethodReferenceExample example = new MethodReferenceExample();
+        MultiFunction<Integer, Integer, Integer, Integer, Integer> f = example::method;
 
-        assert Objects.equals(valueOfIntLambda.apply(4), valueOfIntMethodReference.apply(4));
+        // #3 method references to instance methods of an object of a particular type
+        BiFunction<String, String, String[]> split = String::split;
+        BiFunction<String, String, Boolean> startsWith = String::startsWith;
+        out.println(startsWith.apply("ala ma kota", "ala"));
+        out.println(Arrays.toString(split.apply("ala ma kota", " ")));
+
+        // #4 constructor reference
+        Function<String, String> constructor = String::new;
+        String ala_ma_kota = constructor.apply("ala ma kota");
+        out.println(ala_ma_kota);
     }
 }
 
