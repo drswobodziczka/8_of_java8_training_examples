@@ -5,12 +5,28 @@ public class FunctionalInterfacesExample {
     @FunctionalInterface
     interface Function {
         String filter (String input);
+
+        default String toUpperCase(String input) {
+            return input.toUpperCase();
+        }
     }
 
     @FunctionalInterface
     interface BiFunction {
         String filter (String input, String reqxp);
         boolean equals(Object obj);
+    }
+
+    static class SampleImpl implements BiFunction {
+
+        @Override
+        public String filter(String input, String reqxp) {
+            return null;
+        }
+
+        public static void main(String[] args) {
+            new SampleImpl().equals(null);
+        }
     }
 
     @FunctionalInterface
@@ -50,7 +66,7 @@ public class FunctionalInterfacesExample {
     /*
      * NOT a functional interface!
      * */
-//    @FunctionalInterface
+    //@FunctionalInterface
     interface ToManyAbstractMethods22 extends Function {
         String first (String input);
     }
@@ -58,7 +74,7 @@ public class FunctionalInterfacesExample {
     /*
      * NOT a functional interface!
      * */
-//    @FunctionalInterface
+    //@FunctionalInterface
     abstract class NotAnInterface {
         abstract String method(String param);
     }
@@ -66,7 +82,7 @@ public class FunctionalInterfacesExample {
     /*
      * NOT a functional interface!
      * */
-//    @FunctionalInterface
+    //@FunctionalInterface
     class NotAnInterface2 {
         String method(String param) {
             return null;

@@ -48,7 +48,7 @@ public class LambdasInDifferentContextsExample {
 
         // #5 method paramater
         Integer[] array = {1, 2, 4, 5};
-        Arrays.setAll(array, a -> 1);
+        Arrays.setAll(array, value -> 1);
 
         assert Arrays.stream(array).allMatch(a -> a == 1);
         System.out.println(Arrays.asList(array));
