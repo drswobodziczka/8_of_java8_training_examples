@@ -8,7 +8,7 @@ public class Game {
     private LocalDate firstRun;
     private Integer rank;
 
-    Game(String name, LocalDate firstRun, int rank) {
+    public Game(String name, LocalDate firstRun, int rank) {
         this.name = name;
         this.firstRun = firstRun;
         this.rank = rank;

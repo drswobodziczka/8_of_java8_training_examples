@@ -35,7 +35,8 @@ public class CreateStreamExample {
         Stream<Double> iteratedStream = Stream.iterate(2.0, Math::exp).limit(10);
 
         //
-        DoubleStream doubleStream = DoubleStream.generate(() -> new Random().nextDouble()).limit(10);
+        DoubleStream doubleStream =
+                DoubleStream.generate(() -> new Random().nextDouble()).limit(10);
         Stream<String> alaStream = Stream.generate(() -> "ala ma kota").limit(10);
 
         //
@@ -77,7 +78,9 @@ public class CreateStreamExample {
         printStream(chars.boxed());
 
         //
-        Stream<String> stringStream = "ala ma kota".codePoints().mapToObj(c -> String.valueOf((char) c));
+        Stream<String> stringStream = "ala ma kota"
+                .codePoints()
+                .mapToObj(c -> String.valueOf((char) c));
         printStream(stringStream);
     }
 
