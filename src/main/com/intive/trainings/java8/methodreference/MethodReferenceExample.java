@@ -52,6 +52,7 @@ public class MethodReferenceExample {
         String ala_ma_kota = constructor.apply("ala ma kota");
         out.println(ala_ma_kota);
 
+        // #5 method reference throwing
         FunctionThrowing<String, Integer> methodThrowing = MethodReferenceExample::methodThrowing;
 
         // #6 lambda throwing exception
