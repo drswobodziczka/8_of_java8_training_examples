@@ -60,7 +60,7 @@ public class MethodReferenceExample {
                 throw new IOException();
         };
 
-        // # private constructor not accessible
+        // #7 private constructor not accessible
         // Supplier<Dummy> dCostr = Dummy::new;
     }
 }
