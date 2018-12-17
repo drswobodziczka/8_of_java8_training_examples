@@ -18,6 +18,15 @@ public class DefaultValuesExample {
         });
         System.out.println(valueFromSupplier);
 
+        // #6 if vs ifpresent
+        String n = null;
+        if(n != null) {
+            // do smth
+        }
+
+        Optional.ofNullable(null)
+                .ifPresent((v) -> {});
+
         // #3 or else get - not called
         valueFromSupplier = Optional.of("ale ala ma już kota").orElseGet(() -> {
             System.out.println("not reachable will not appear..");
@@ -31,5 +40,9 @@ public class DefaultValuesExample {
         } catch (RuntimeException e) {
             System.out.println(e);
         }
+
+        // #5 map vs flatMap
+        Optional.ofNullable(Optional.of("ggg")).flatMap(v -> v).get();
+        Optional.ofNullable(Optional.of("ggg")).map(v -> v).get().get();
     }
 }

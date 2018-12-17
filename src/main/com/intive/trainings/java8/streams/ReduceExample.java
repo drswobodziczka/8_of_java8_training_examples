@@ -27,6 +27,8 @@ public class ReduceExample {
                 .map(Game::getName)
                 .reduce("", String::concat);
 
+        System.out.println(reduced);
+
         //
         String joined = games.stream()
                 .map(Game::getName)
@@ -84,5 +86,14 @@ public class ReduceExample {
         System.out.println("sum old: " + example.sumItInOldStyle());
         System.out.println("sum new: " +  example.sumItInJava8Style());
         example.anotherReduceOperationsInJava8();
+
+        boolean b = Arrays.stream(new int[]{1, 2, 3, 5, 6, 7, 8, 8, 10})
+                .noneMatch(i -> i > 1234);
+        System.out.println(b);
+
+        Arrays.stream(new int[]{133, 2, 43, 5, 6, 57, 8, 38, 10})
+                .forEachOrdered(System.out::println);
+
+
     }
 }
