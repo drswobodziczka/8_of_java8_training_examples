@@ -1,6 +1,7 @@
 package com.intive.trainings.java8.lambdas;
 
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 
 public class LambdasLimitationsExample {
 
@@ -13,6 +14,21 @@ public class LambdasLimitationsExample {
                 return prefix + a;
             }
             return prefix + b;
+        };
+
+        //
+        try {
+            Consumer<String> as = (a) -> {
+                throw new RuntimeException();
+            };
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int i = 0;
+        Consumer<String> as = (a) -> {
+            System.out.println(i);
+            throw new RuntimeException();
         };
     }
 }

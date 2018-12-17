@@ -35,7 +35,6 @@ public class HowToImproveLegacyCodeWithLambdasExample {
                 // do something
             }
         });
-
         thread = new Thread(() -> { /* do something */ });
 
         // #3 sort games by the rank with custom comparator
@@ -64,7 +63,5 @@ public class HowToImproveLegacyCodeWithLambdasExample {
         });
 
         File[] filesWithLambda = new File("").listFiles(pathname -> false);
-
-        // #5
     }
 }
